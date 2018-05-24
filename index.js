@@ -15,7 +15,7 @@ const corsOptions = {
 
 const limiter = new RateLimiter(1, 100, true)
 
-if (process.env === 'DEV') {
+if (process.env.NODE_ENV === 'DEV') {
   app.use(express.static('public'))
 }
 

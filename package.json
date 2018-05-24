@@ -4,6 +4,8 @@
   "description": "The Daily Fear front / back end",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "NODE_ENV=DEV node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ivan Firsov",
