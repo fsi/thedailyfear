@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.min.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"/>
+<link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+<title>the daily fear</title>
+<style>
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    background: #000 url('/img/zwartevilt.png');
+  }
+  h1 {
+    font-family: 'Permanent Marker', sans-serif;
+    color: #A00000;
+  }
+  .fearbtn {
+    margin-top: 2em;
+    box-shadow: 0 0 15px #800000;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 2em;
+    color: #400;
+    border: 0;
+    background-color: rgba(40, 0, 0, 0.5);
+  }
+  .fearbtn:hover, .fearbtn:focus {
+    outline: 0;
+    border: 0;
+    color: #600;
+    box-shadow: 0 0 25px #800000;
+    background-color: rgba(40, 10, 10, 0.7);
+  }
+  .fearbtn:active, .fearbtn:active:hover, .fearbtn:active:focus {
+    outline: 0;
+    border: 0;
+    color: #300;
+    box-shadow: 0 0 25px #A00000;
+    background-color: rgba(30, 0, 0, 0.4);
+  }
+  .feartext {
+    margin-top: 2em;
+    background: #222 url('/img/binding_dark.png');
+    font-weight: bold;
+    color: red;
+    border: 0;
+    font-size: large;
+    box-shadow: 0 0 15px #FF0000;
+    text-shadow: 0 0 2px #800000;
+  }
+</style>
+</head>
+<body>
+  	<div class="container">
+  		<h1>THE DAILY FEAR</h1>
+    	<pre id="feartext" class="feartext"></pre>
+    	<button id="fearbtn" class="fearbtn btn btn-default btn-block">fear me</button>
+  	</div>
+  	<script type="text/javascript">
+		function fearHandler(e) {
+		  $.get('//test.thedailyfear.net/fear', function(response){
+		    try {
+		      var text = response.text;
+		      document.getElementById('feartext').textContent = text;
+		    } catch (e) {}
+		  });
+		}
+
+		$('#fearbtn').click(fearHandler)
+		$(document).ready(fearHandler)
+	</script>
+</body>
+</html>
